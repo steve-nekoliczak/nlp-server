@@ -1,4 +1,4 @@
-FROM python:3.10.4-alpine3.16
+FROM python:latest
 
 # RUN apk add --no-cache --virtual .build-deps \
 #     ca-certificates gcc postgresql-dev linux-headers musl-dev \
@@ -12,4 +12,6 @@ COPY requirements.txt $APP_HOME
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
-RUN cd $APP_HOME && pip --default-timeout=1000 install -r requirements.txt
+RUN cd $APP_HOME && pip install -r requirements.txt
+
+# RUN python -c 'import stanza; stanza.download("de")'
