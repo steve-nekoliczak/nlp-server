@@ -12,4 +12,4 @@ COPY requirements.txt $APP_HOME
 
 RUN /usr/local/bin/python -m pip install --upgrade pip
 
-RUN cd $APP_HOME && pip install -r requirements.txt
+RUN cd $APP_HOME && pip --default-timeout=1000 install -r requirements.txt
