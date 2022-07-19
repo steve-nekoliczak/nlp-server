@@ -1,6 +1,6 @@
 # flask_web/app.py
 
-from flask import Flask
+from flask import Flask, request
 from de_processor import DeProcessor
 
 app = Flask(__name__)
@@ -9,9 +9,9 @@ app = Flask(__name__)
 def hello_world():
     return 'Hey, we have Flask in a Docker container!'
 
-@app.route('/de/sentence')
+@app.route('/de/sentence', methods=['PUT'])
 def de_process_sentence():
-    return DeProcessor.process_sentence("Ich bin Berliner.")
+    return DeProcessor.process_sentence(request.json)
 
 
 if __name__ == '__main__':
