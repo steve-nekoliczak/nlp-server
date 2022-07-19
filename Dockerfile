@@ -14,4 +14,4 @@ RUN /usr/local/bin/python -m pip install --upgrade pip
 
 RUN cd $APP_HOME && pip install -r requirements.txt
 
-# RUN python -c 'import stanza; stanza.download("de")'
+RUN python -c 'import stanza; stanza.download("de")'
